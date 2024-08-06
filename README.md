@@ -26,7 +26,7 @@ For proper execution, please ensure that the datasets are placed within the `.\d
 ### Edge Features
 For detailed information on how we create edge attributes, please refer to Appendix D of our paper, where we provide an extensive discussion and introduction on it. Additionally, you may customize the edge attribute creation by implementing your own method, as an alternative to the Pearson correlation or the Time-delayed Dynamic Time Warping (DTW) method used in our study.
 
-If you prefer to follow our approach, here is an example code to generate the peacor_adj.npy file:
+If you prefer to follow our approach, here is an example code to generate the `peacor_adj.npy` file:
 ```
 def get_peacor_adj(data_path, threshold, save=False):
     # Load the dataset
