@@ -23,6 +23,11 @@ The performance of CaST was validated using three datasets: PEMS08, AIR-BJ, and 
 
 For proper execution, please ensure that the datasets are placed within the `.\data\[dataset_name]\dataset.npy`. Ensure that the datasets adhere to the following structure: `(num_samples, num_nodes, input_dim)`.
 
+For the PEMS08 dataset, `dataset.npy` file can be generated using the following code
+```
+data = np.load('./data/PEMS08/pems08.npz')['data']
+np.save('./data/PEMS08/dataset.npy', data)
+```
 ### Edge Features
 For detailed information on how we create edge attributes, please refer to Appendix D of our paper, where we provide an extensive discussion and introduction on it. Additionally, you may customize the edge attribute creation by implementing your own method, as an alternative to the Pearson correlation or the Time-delayed Dynamic Time Warping (DTW) method used in our study.
 
