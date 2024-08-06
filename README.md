@@ -54,7 +54,7 @@ def get_peacor_adj(data_path, threshold, save=False):
     if save:
         np.save(data_path + 'peacor_adj.npy', peacor)
 ```
-For reproductitvty, we also provide `peacor_adj.npy`, `sparse_adj.npy`, and `dist_adj.npy` in the `.\data\PEMS08\` directory for reference.
+For reproducibility, we also provide `peacor_adj.npy`, `sparse_adj.npy`, and `dist_adj.npy` in the `.\data\PEMS08\` directory for reference.
 
 ## Arguments
 
