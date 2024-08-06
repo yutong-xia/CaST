@@ -17,9 +17,44 @@ CaST uses the following dependencies:
 - CUDA 11.3 or latest version, cuDNN
 
 ## Dataset
+
+### Overview
 The performance of CaST was validated using three datasets: PEMS08, AIR-BJ, and AIR-GZ. AIR-BJ and AIR-GZ contain one-year PM$_{2.5}$ readings obtained from air quality monitoring stations located in Beijing and Guangzhou, respectively. [PEMS08](https://github.com/Davidham3/ASTGCN/tree/master/data/PEMS08) contains traffic flow data that was collected by sensors deployed on the road network. Traffic flow data is often considered to be a complex and challenging type of spatio-temporal data due to the numerous factors that can impact it, such as weather, time of day, and road conditions. 
 
 For proper execution, please ensure that the datasets are placed within the `.\data\[dataset_name]\dataset.npy`. Ensure that the datasets adhere to the following structure: `(num_samples, num_nodes, input_dim)`.
+
+### Edge Features
+For detailed information on how we create edge attributes, please refer to Appendix D of our paper, where we provide an extensive discussion and introduction on it. Additionally, you may customize the edge attribute creation by implementing your own method, as an alternative to the Pearson correlation or the Time-delayed Dynamic Time Warping (DTW) method used in our study.
+
+If you prefer to follow our approach, here is an example code to generate the peacor_adj.npy file:
+```
+def get_peacor_adj(data_path, threshold, save=False):
+    # Load the dataset
+    data = np.load(data_path + 'train.npz')['data']
+    print("Data shape:", data.shape)
+    
+    # Compute the Pearson correlation coefficient matrix
+    peacor = torch.corrcoef(torch.Tensor(data[...,0]).permute(1, 0))
+    
+    # Apply threshold
+    peacor[peacor < threshold] = 0
+    peacor[torch.eye(peacor.shape[0], dtype=bool)] = 0
+
+    # Normalize the coefficients
+    nonzero_peacor = peacor[peacor != 0]
+    p_min, p_max = nonzero_peacor.min(), nonzero_peacor.max()
+    peacor[peacor != 0] = (nonzero_peacor - p_min) / (p_max - p_min)
+
+    # Visualization
+    plt.figure(dpi=100)
+    sns.heatmap(peacor)
+    plt.show()
+    
+    # Save the result
+    if save:
+        np.save(data_path + 'peacor_adj.npy', peacor)
+```
+For reproductitvty, we also provide `peacor_adj.npy`, `sparse_adj.npy`, and `dist_adj.npy` in the `.\data\PEMS08\` directory for reference.
 
 ## Arguments
 
