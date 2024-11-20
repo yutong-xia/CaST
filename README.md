@@ -19,7 +19,7 @@ CaST uses the following dependencies:
 ## Dataset
 
 ### Overview
-The performance of CaST was validated using three datasets: PEMS08, AIR-BJ, and AIR-GZ. AIR-BJ and AIR-GZ contain one-year PM$_{2.5}$ readings obtained from air quality monitoring stations located in Beijing and Guangzhou, respectively. [PEMS08](https://github.com/Davidham3/ASTGCN/tree/master/data/PEMS08) contains traffic flow data that was collected by sensors deployed on the road network. Traffic flow data is often considered to be a complex and challenging type of spatio-temporal data due to the numerous factors that can impact it, such as weather, time of day, and road conditions. 
+The performance of CaST was validated using three datasets: PEMS08, AIR-BJ, and AIR-GZ. AIR-BJ and AIR-GZ contain one-year $\text{PM}_{2.5}$ readings obtained from air quality monitoring stations located in Beijing and Guangzhou, respectively. [PEMS08](https://github.com/Davidham3/ASTGCN/tree/master/data/PEMS08) contains traffic flow data that was collected by sensors deployed on the road network. Traffic flow data is often considered to be a complex and challenging type of spatio-temporal data due to the numerous factors that can impact it, such as weather, time of day, and road conditions. 
 
 For proper execution, please ensure that the datasets are placed within the `.\data\[dataset_name]\dataset.npy`. Ensure that the datasets adhere to the following structure: `(num_samples, num_nodes, input_dim)`.
 
