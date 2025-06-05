@@ -7,7 +7,7 @@ This repo provides the implementation code corresponding to our NeurIPS-23 paper
 ## Description
 We present CaST, a new framework that takes a causal look into Spatio-Temporal Graph (STG) forecasting, tackling temporal out-of-distribution issues and dynamic spatial causation. We employ two causal tools: Back-door adjustment, implemented through a disentanglement block to distinguish invariant parts from temporal environments, and Front-door adjustment, which introduces a surrogate variable to emulate node information filtered based on their causal relationships.
 
-For a deeper understanding of the ideas and technical design behind CaST, check out this [Q&A]([https://your-qa-link.com](https://yutong-xia.github.io/blogs/cast_fqa/)) blog, where we answer common questions and discuss design choices in detail.
+For a deeper understanding of the ideas and technical design behind CaST, check out this [Q&A blog](https://yutong-xia.github.io/blogs/cast_fqa/), where we answer common questions and discuss design choices in detail.
 
 ## Requirements
 
